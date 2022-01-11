@@ -7,7 +7,7 @@
 
 DCM is a set of tools that helps you to keep your data in your Django Models consistent.
 
-![This is an image](title-800.png)
+![Django Consistency Model](https://github.com/occipital/django-consistency-model/blob/master/title-800.png)
 
 ## Motivation
 
