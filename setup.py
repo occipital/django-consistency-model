@@ -70,7 +70,7 @@ if sys.argv[-1] == "publish":
     print("  git push --tags")
     shutil.rmtree("dist")
     shutil.rmtree("build")
-    shutil.rmtree("consistency_model.egg-info")
+    shutil.rmtree("django_consistency_model.egg-info")
     sys.exit()
 
 
@@ -84,7 +84,12 @@ setup(
     long_description_content_type="text/markdown",
     author="Alex Liabakh",
     author_email="alex.lyabakh@occipital.com",
-    packages=find_packages(exclude=["tests*"]),
+    packages=[
+        "consistency_model",
+        "consistency_model.management",
+        "consistency_model.management.commands",
+        "consistency_model.migrations"
+    ],
     include_package_data=True,
     install_requires=[
         "django>=2.2",
