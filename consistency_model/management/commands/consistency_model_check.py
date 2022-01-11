@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.apps import apps
 
-from consistency_model.tools import gen_consistency_errors, gen_validators
+from consistency_model import gen_consistency_errors, gen_validators
 
 
 class Command(BaseCommand):

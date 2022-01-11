@@ -342,3 +342,46 @@ def gen_consistency_errors(
                             if name:
                                 validator_name_message += "." + name
                             yield (validator_name_message, obj, message)
+
+
+def monitoring_iteration(validators=None, exclude_validators=None) -> None:
+    """
+    One iteration of monitoring that checks consistency using @validators and @exclude_validators
+    and saves the result into ConsistencyFail model
+    """
+    from .models import ConsistencyFail
+
+    fail_ids = set()
+
+    for validator_name, obj, message in gen_consistency_errors(
+        validators,
+        exclude_validators=exclude_validators,
+    ):
+        fail = ConsistencyFail.objects.filter(
+            resolved=False,
+            validator_name=validator_name,
+            object_id=obj.id,
+        ).first()
+        if fail:
+            fail.update_message(message)
+        else:
+            fail = ConsistencyFail.objects.create(
+                validator_name=validator_name,
+                content_object=obj,
+                message=str(message),
+            )
+        fail_ids.add(fail.id)
+
+    for fail in ConsistencyFail.objects.filter(resolved=False):
+        if fail.id in fail_ids:
+            continue
+
+        func_validators = gen_validators_by_func(fail.validator_name)
+        for validator_name, obj, message in gen_consistency_errors(
+            func_validators, objects=[fail.content_object]
+        ):
+            if fail.validator_name == validator_name:
+                fail.update_message(message)
+                break
+        else:
+            fail.resolve()
