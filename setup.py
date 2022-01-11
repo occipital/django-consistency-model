@@ -66,8 +66,7 @@ if sys.argv[-1] == "publish":
         sys.exit()
     os.system("twine upload dist/*")
     print("You probably want to also tag the version now:")
-    print("  git tag -a %s -m 'version %s'" % (version, version))
-    print("  git push --tags")
+    print("  git tag -a %s -m 'version %s'; git push --tags" % (version, version))
     shutil.rmtree("dist")
     shutil.rmtree("build")
     shutil.rmtree("django_consistency_model.egg-info")
@@ -88,7 +87,7 @@ setup(
         "consistency_model",
         "consistency_model.management",
         "consistency_model.management.commands",
-        "consistency_model.migrations"
+        "consistency_model.migrations",
     ],
     include_package_data=True,
     install_requires=[
