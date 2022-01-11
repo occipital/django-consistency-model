@@ -1,5 +1,5 @@
 __title__ = "Django Consistency Model"
-__version__ = "0.1"
+__version__ = "0.1.1"
 __author__ = "Alex Liabakh"
 
 from .tools import (
