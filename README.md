@@ -249,9 +249,7 @@ If you have `pid` package installed, one will be used for monitoring command to 
 
 ## Contributing
 
-We’re looking to grow the project and get more contributors especially to support more languages/versions. We’d also like to get the .pre-commit-hooks.yaml files added to popular linters without maintaining forks / mirrors.
-
-Feel free to submit bug reports, pull requests, and feature requests.
+We’re looking to grow the project and get more contributors. Feel free to submit bug reports, pull requests, and feature requests.
 
 Tools:
 
