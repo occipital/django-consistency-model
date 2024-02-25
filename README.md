@@ -1,3 +1,5 @@
+[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
+
 [![PyPI version fury.io](https://badge.fury.io/py/django-consistency-model.svg)](https://pypi.python.org/pypi/django-consistency-model/) 
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/django-consistency-model.svg)](https://pypi.python.org/pypi/django-consistency-model/)
 [![PyPI - Django Version](https://img.shields.io/pypi/djversions/django-consistency-model)](https://pypi.python.org/pypi/django-consistency-model/)
